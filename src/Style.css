@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 200px;
+  width: 200px;
+  border: solid black;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}

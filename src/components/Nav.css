@@ -1,0 +1,26 @@
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin: 40px 40px;
+  height: 80px;
+  background-color: #75c8ffdc;
+
+  align-items: center;
+}
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 60px;
+}
+.Tilt {
+  height: 80px;
+  width: 10%;
+  background-image: url("./img.png");
+  background-size: cover;
+}
+.tilt-container {
+  height: 80px;
+  width: 100%;
+}
