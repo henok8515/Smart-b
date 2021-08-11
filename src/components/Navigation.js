@@ -1,15 +1,15 @@
 import React from "react";
 import Tilt from "react-tilt";
 import "./Nav.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-function Navigation() {
+function Navigation({ onRouteChange }) {
   return (
     <div className="navigation-container">
       <div className="nav-content">
-        <Link to="/signin">signOut</Link>
+        <button onClick={() => onRouteChange("signin")}>signOut</button>
       </div>
-      <Link className="tilt-container" to="/">
+      <h2 className="tilt-container">
         {" "}
         <Tilt
           className="Tilt"
@@ -21,7 +21,7 @@ function Navigation() {
         >
           <div className="Tilt-inner"></div>
         </Tilt>
-      </Link>
+      </h2>
     </div>
   );
 }

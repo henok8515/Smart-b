@@ -1,11 +1,12 @@
-import React from "react";
 import "./input.css";
-import Rank from "./Rank";
 
-function Input({ onInputChange, onSubmit }) {
+function Input({ onInputChange, onSubmit, onRankChange }) {
   return (
     <div className="input-content">
-      <Rank />
+      <div>
+        <h1>{"Henok"}</h1>
+        <p>henok your current rank is {onRankChange}</p>
+      </div>
       <div className="input-container">
         <input className="input" onChange={onInputChange} />
         <button className="button" onClick={onSubmit}>

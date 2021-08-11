@@ -3,7 +3,8 @@ import "./App.css";
 
 import Input from "./components/Input";
 import Navigation from "./components/Navigation";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Register from "./components/Register";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./components/SignIn";
 
 // const app = new Clarify.app({
@@ -16,14 +17,15 @@ class App extends Component {
     this.state = {
       input: "",
       route: "",
+      rank: "11",
     };
   }
 
   onInputChange = (event) => {
     console.log(event.target.value);
   };
-  onRouteChange = () => {
-    this.setState({ route: "/" });
+  onRouteChange = (route) => {
+    this.setState({ route: route });
   };
   onSubmit = () => {
     console.log("click");
@@ -37,25 +39,27 @@ class App extends Component {
     //     function (err) {}
     //   );
   };
+  onRankChange = () => {
+    this.setState({ rank: this.state.rank });
+  };
   render() {
     return (
       <div className="app-body">
-        <Router>
-          <Navigation />
-          <Switch>
-            <Route exact path="/">
-              <Input
-                onInputChange={this.onInputChange}
-                onSubmit={this.onSubmit}
-              />
-            </Route>
-            <Route
-              path="/signin"
-              component={SignIn}
-              onRouteChange={this.onRouteChange}
+        {" "}
+        <Navigation onRouteChange={this.onRouteChange} />
+        {this.state.route === "home" ? (
+          <div>
+            <Input
+              onRankChange={this.onRankChange}
+              onInputChange={this.onInputChange}
+              onSubmit={this.onSubmit}
             />
-          </Switch>
-        </Router>
+          </div>
+        ) : this.state.route === "signin" ? (
+          <SignIn />
+        ) : (
+          <Register onRouteChange={this.onRouteChange} />
+        )}
       </div>
     );
   }
